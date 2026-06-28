@@ -1,15 +1,41 @@
 classDiagram
-    %% Replace the placeholders below with your actual classes, attributes, methods, and relationships.
-    %% Keep this file updated so it matches your final implementation.
-
-    class ClassName {
-        +type attribute
-        +method() returnType
+    class Owner {
+        +owner_id: int
+        +name: string
+        +email: string
+        +pets: List<Pets>
+        +create_account()
+        +add_pet(pet: Pets)
     }
 
-    class AnotherClass {
-        +type attribute
-        +method() returnType
+    class Pets {
+        +pet_id: int
+        +name: string
+        +species: string
+        +breed: string
+        +age: int
+        +health_notes: string
+        +tasks: List<Task>
+        +add_task(task: Task)
     }
 
-    ClassName --> AnotherClass : relationship
+    class Task {
+        +task_id: int
+        +title: string
+        +description: string
+        +due_time: datetime
+        +priority: string
+        +completed: bool
+        +mark_completed()
+    }
+
+    class Scheduler {
+        +task_list: List<Task>
+        +schedule_task(task: Task)
+        +sort_by_priority()
+        +display_schedule()
+    }
+
+    Owner "1" --> "0..*" Pets : owns
+    Pets "1" --> "0..*" Task : has
+    Scheduler "1" --> "0..*" Task : manages

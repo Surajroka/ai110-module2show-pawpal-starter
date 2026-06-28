@@ -7,6 +7,21 @@
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
 
+My initial UML design lets an owner create an account and add pets to manage. 
+Pet stores information about each pet the owner adds along with the health notes.
+We have a task section about what the task is done and what is needed to be done along with a scheduler to plan what to do in the future.
+
+I have classes listed as Owner to represent  pet owner and manage their pet, Pet class as it stores information about the pet , Task as parent class for child class as Feeding, Walk, medication, appointment, all related to pet activities and a scheduler.
+
+Owner Class with attributes Owner-id, name, email, pets
+Pets Class with attributes pet_id, name, species, breed, age, health_note, tasks
+Task class with attributes task_id, title, description of the task, due_time, priority, completed
+Feeding	attributes food_type, quantity, feeding_time	
+Walk	attributes duration_minutes, location, walk_time	
+Medication	attributes medicine_name, dosage, instructions, medication_time
+Appointment	attributes appointment_type, vet_name, location, appointment_date	
+Scheduler	attributes task_list, priority_queue
+
 **b. Design changes**
 
 - Did your design change during implementation?
