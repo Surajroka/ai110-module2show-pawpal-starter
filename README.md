@@ -54,6 +54,13 @@ Paste a sample of your app's CLI or Streamlit output here so a reader can see wh
 #   ...
 ```
 
+Today’s schedule
+================
+- Morning walk | Pet: Mochi | Priority: high | Duration: 20 min
+- Medication | Pet: Mochi | Priority: high | Duration: 5 min
+- Feed lunch | Pet: Luna | Priority: medium | Duration: 10 min
+- Play time | Pet: Luna | Priority: low | Duration: 15 min
+
 ## 🧪 Testing PawPal+
 
 ```bash
@@ -72,14 +79,14 @@ Sample test output:
 
 ## 📐 Smarter Scheduling
 
-> Fill in once you've implemented scheduling logic.
+This app includes several scheduling behaviors that make task planning more useful for pet owners.
 
 | Feature | Method(s) | Notes |
 |---------|-----------|-------|
-| Task sorting | | e.g., by priority, duration |
-| Filtering | | e.g., skip tasks if time runs out |
-| Conflict handling | | e.g., overlapping time slots |
-| Recurring tasks | | e.g., daily vs. weekly |
+| Task sorting | `Scheduler.sort_by_time()` | Sorts pending tasks by `due_time`, with untimed tasks appearing last.
+| Filtering | `Scheduler.filter_tasks()` | Filters tasks by `completed` status and/or `pet_name`.
+| Conflict detection | `Scheduler.detect_conflicts()` | Returns warning messages when two timed tasks overlap, without crashing the app.
+| Recurring tasks | `Scheduler.mark_task_completed()` / `Scheduler.mark_task_completed_by_id()` | Auto-creates the next `daily` or `weekly` occurrence when a recurring task is completed.
 
 ## 📸 Demo Walkthrough
 

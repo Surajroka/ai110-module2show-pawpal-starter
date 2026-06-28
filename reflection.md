@@ -27,6 +27,9 @@ Scheduler	attributes task_list, priority_queue
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
 
+Yes the design changed during implementation.
+Task is connected to Pet to know which task belongs to which pet. We added methods to keep both side in sync such as when you add a pet to an owner the pets owner reference is updated.
+ We have scheduler to avoid duplicates and pending tasks.
 ---
 
 ## 2. Scheduling Logic and Tradeoffs
@@ -40,6 +43,8 @@ Scheduler	attributes task_list, priority_queue
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
+
+One tradeoff in this scheduler is that conflict detection only checks tasks with explicit `due_time` values and compares their full duration windows for overlap. This is reasonable for the current app because it keeps conflict logic lightweight and predictable, while still catching double-booked appointments, even though it does not support more advanced soft buffers or partially flexible task windows.
 
 ---
 
